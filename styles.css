@@ -1,4 +1,4 @@
-#container {
+.container {
 
     display: inline-grid;
     grid-template-columns: repeat(16, 2fr);
@@ -19,7 +19,7 @@
 
 .div{
     background: white;
-    border: 2px solid black;
+    border: 1px solid black;
 }
 
 
