@@ -20,10 +20,11 @@ function reset(){
 
 
 function apply(){
+    reset();
     let entered = parseInt(getEnteredNumber());
     let size = entered * entered;
     container.setAttribute('style', `grid-template-columns: repeat(${entered}, 2fr); grid-template-rows: repeat(${entered}, 2fr);`);
-    for (let i = 0; i < 256; i++) {
+    for (let i = 0; i < size; i++) {
         const div = document.createElement('div');
         div.classList.add('div');
             div.addEventListener('mouseover', function(event){
