@@ -38,14 +38,36 @@ function apply(){
 
 function getEnteredNumber(){
     const n = document.getElementById("enteredNumber").value;
-    console.log(n)
-    return n
+    console.log(n);
+    if (n<=64){
+        return n;
+    }else{
+        alert("Entered number is greater than 64, \n Please enter a smaller number");
+    }
+    
 }
 
-// if(entered <= 25){
-//     size = entered * entered
-// }else{
-//     console.log("enter a smaller number")
-// }
+function randomColor() {
+    let color = [];
+    for (let i = 0; i < 3; i++) {
+      color.push(Math.floor(Math.random() * 256));
+    }
+    return 'rgb(' + color.join(', ') + ')';
+  }
+
+  function applyRandomColor(){
+    reset();
+    let entered = parseInt(getEnteredNumber());
+    let size = entered * entered;
+    container.setAttribute('style', `grid-template-columns: repeat(${entered}, 2fr); grid-template-rows: repeat(${entered}, 2fr);`);
+    for (let i = 0; i < size; i++) {
+        const div = document.createElement('div');
+        div.classList.add('div');
+            div.addEventListener('mouseover', function(event){
+            event.target.style.backgroundColor = randomColor();
+        })
+        container.appendChild(div); 
+    }
+}
 
 createGrid();
